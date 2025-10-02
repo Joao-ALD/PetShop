@@ -1,0 +1,4 @@
+Exercício proposto no Microsoft Teams pelo Professor Fabiano Albers:
+
+Tarefa CRUD UPLOAD de imagem
+Faça um Sistema para um PETSHOP que deseja salvar o PET com sua foto, nome, cor, ESPÉCIE, RAÇA e deve estar vinculado ao seu TUTOR que deverá conter nome, email, telefone e foto

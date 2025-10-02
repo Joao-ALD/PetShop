@@ -28,6 +28,7 @@ if not exist "%projectName%\artisan" (
 :: Entra na pasta do projeto
 cd %projectName%
 
+:: Agora, todos os comandos serão executados dentro da pasta do projeto
 :: Pergunta se deseja instalar Breeze
 set /p usarBreeze=Deseja instalar Laravel Breeze para autenticacao simples? (s/n): 
 
@@ -59,6 +60,5 @@ echo 1. Edite o arquivo .env com seus dados do banco de dados.
 echo 2. Edite as migrations em database\migrations\
 echo 3. Execute: php artisan migrate
 echo 4. Implemente relacionamentos entre os models se necessario.
-echo 5. Adicione upload de imagens, se for o caso.
 echo.
 pause

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\breed;
+use App\Models\Breed;
+use App\Models\Owner;
 use App\Models\Pet;
 use App\Models\Specie;
 use Illuminate\Http\Request;
@@ -15,27 +16,27 @@ class PetController extends Controller
         $pets = Pet::all();
         $breeds = Breed::all();
         $species = Specie::all();
-        return view("pets.index", compact("pets", "breeds", "species"));
+        $owners = Owner::all();
+        return view('pets.index', compact('pets', 'breeds', 'species', 'owners'));
     }
-
-    
     public function create()
     {
-        $breeds = Breed::all();
-        $spices = Specie::all();
         $pets = Pet::all();
+        $breeds = Breed::all();
+        $species = Specie::all();
+        $owners = Owner::all();
 
-        return view("pets.create", compact("pets","breeds", "spices"));
+        return view("pets.create", compact("pets","breeds", "species", "owners"));
     }
 
     public function store(Request $request)
     {
-        $request->validate(['foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
-        $data = $request->except('foto');   
+        $request->validate(['photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+        $data = $request->except('photo');   
         
-        if ($request->hasFile('foto')) {
-            $path = $request->file('foto')->store('uploads', 'public');
-            $data['foto'] = $path;
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('uploads', 'public');
+            $data['photo'] = $path;
         }
         
         pet::create($data);

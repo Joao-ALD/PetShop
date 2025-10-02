@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\breed;
-use App\Models\specie; // importar o model specie
+use App\Models\Breed;
+use App\Models\Specie; // importar o model specie
 use Illuminate\Http\Request;
 
 class BreedController extends Controller
 {
     public function index()
     {
-        $breeds = breed::all();
+        $breeds = Breed::all();
         return view("breeds.index", compact("breeds"));
     }
 
     public function create()
     {
-        $species = specie::all(); // carrega todas as espécies para o select no formulário
+        $species = Specie::all(); // carrega todas as espécies para o select no formulário
         return view("breeds.create", compact("species"));
     }
 

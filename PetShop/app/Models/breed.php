@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class breed extends Model
 {
     protected $fillable = ['breed', 'specie_id', 'description'];
+    protected $table = 'breeds';
     public function specie()
     {
         return $this->belongsTo(Specie::class);

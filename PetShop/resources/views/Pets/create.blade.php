@@ -20,7 +20,7 @@
                 <label for="">Espécie</label>
                 <select class="form-select" name="species_id" required>
                     @foreach($species as $specie)
-                    <option value="{{ $specie->id }}">{{ $specie->name }}</option>
+                    <option value="{{ $specie->id }}">{{ $specie->specie }}</option>
                     @endforeach
                 </select>
             </div>
@@ -28,7 +28,7 @@
                 <label for="">Raça</label>
                 <select class="form-select" name="breed_id" required>
                     @foreach($breeds as $breed)
-                    <option value="{{ $breed->id }}">{{ $breed->name }}</option>
+                    <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
                     @endforeach
                 </select>
             </div>
@@ -42,8 +42,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="foto" class="form-label">Foto</label>
-                <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
+                <label for="photo" class="form-label">Foto</label>
+                <input type="file" id="photo" name="photo" class="form-control" accept="image/*">
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>

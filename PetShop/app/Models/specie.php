@@ -9,4 +9,5 @@ class specie extends Model
 {
     // use HasFactory;
     protected $fillable = ['specie', 'description'];
+    protected $table = 'species';
 }

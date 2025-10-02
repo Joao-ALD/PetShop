@@ -1,50 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Editar Funcionário</h2>
-<a href="{{ route('funcionarios.index') }}" class="btn btn-secondary mb-3">Voltar para a lista</a>
+<h2>Editar Pet</h2>
+<a href="{{ route('pets.index') }}" class="btn btn-secondary mb-3">Voltar para a lista</a>
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('funcionarios.update', $funcionario) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('pets.update', $pet) }}" method="post" enctype="multipart/form-data">
             @csrf
-            @method('PUT') <!--o laravel EXIGE o método PUT para ALTERAÇÕES  -->
+            @method('PUT') <!-- Laravel exige método PUT para update -->
+
             <div class="mb-3">
-                <label>Nome Completo</label>
-                <input type="text" class="form-control" name="nome" value="{{ $funcionario->nome }}" placeholder="{{ $funcionario->nome }}" required>
+                <label>Nome do Pet</label>
+                <input type="text" class="form-control" name="name" value="{{ old('name', $pet->name) }}" required>
             </div>
+
             <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" value="{{ $funcionario->email }}" placeholder="{{ $funcionario->email }}" required>
+                <label>Cor</label>
+                <input type="text" name="color" class="form-control" value="{{ old('color', $pet->color) }}" required>
             </div>
+
             <div class="mb-3">
-                <label>Telefone</label>
-                <input type="text" name="telefone" class="form-control" value="{{ $funcionario->telefone }}" placeholder="{{ $funcionario->telefone}}" required>
-            </div>
-            <div class="mb-3">
-                <label for="">Cargo</label>
-                <select class="form-select" name="cargo_id" required>
-                    @foreach($cargos as $cargo)
-                    <option value="{{ $cargo->id }}" {{ $funcionario->cargo_id == $cargo->id ? 'selected' : '' }}>{{ $cargo->cargo }}</option>
+                <label>Espécie</label>
+                <select class="form-select" name="specie_id" required>
+                    <option value="">Selecione a espécie</option>
+                    @foreach($species as $specie)
+                        <option value="{{ $specie->id }}" {{ old('specie_id', $pet->specie_id) == $specie->id ? 'selected' : '' }}>
+                            {{ $specie->specie }}
+                        </option>
                     @endforeach
                 </select>
             </div>
+
             <div class="mb-3">
-                <label for="">Função</label>
-                <select class="form-select" name="funcao_id" required>
-                    @foreach($funcaos as $funcao)
-                    <option value="{{ $funcao->id }}" {{ $funcionario->funcao_id == $funcao->id ? 'selected' : '' }}>{{ $funcao->funcao }}</option>
+                <label>Raça</label>
+                <select class="form-select" name="breed_id" required>
+                    <option value="">Selecione a raça</option>
+                    @foreach($breeds as $breed)
+                        <option value="{{ $breed->id }}" {{ old('breed_id', $pet->breed_id) == $breed->id ? 'selected' : '' }}>
+                            {{ $breed->breed }}
+                        </option>
                     @endforeach
                 </select>
             </div>
+
+            <div class="mb-3">
+                <label>Tutor</label>
+                <select class="form-select" name="tutor_id" required>
+                    <option value="">Selecione o tutor</option>
+                    @foreach($tutors as $tutor)
+                        <option value="{{ $tutor->id }}" {{ old('tutor_id', $pet->tutor_id) == $tutor->id ? 'selected' : '' }}>
+                            {{ $tutor->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="mb-3">
                 <label class="form-label">Foto Atual</label><br>
-                <img src="{{  asset('storage/' .$funcionario->foto) }}" class="img-thumbnail mb-2" width="150" alt="Foto Atualmente cadastrada no funcionário">
+                @if($pet->foto)
+                    <img src="{{ asset('storage/' . $pet->foto) }}" class="img-thumbnail mb-2" width="150" alt="Foto atual do pet">
+                @else
+                    <p>Sem foto cadastrada.</p>
+                @endif
             </div>
+
             <div class="mb-3">
                 <label for="foto" class="form-label">Alterar foto</label>
-                <input type="file" id="foto" name="foto" class="form-control" accept="image/*"">
+                <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
             </div>
+
             <button type="submit" class="btn btn-primary">Salvar Alterações</button>
         </form>
     </div>

@@ -1,38 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Novo(a) Funcionário(a)</h2>
-<a href="{{ route('funcionarios.index') }}" class="btn btn-secondary mb-3">Voltar</a>
+<h2>Novo Pet</h2>
+<a href="{{ route('pets.index') }}" class="btn btn-secondary mb-3">Voltar</a>
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('funcionarios.store') }}" enctype="multipart/form-data" method="post">
+        <form action="{{ route('pets.store') }}" enctype="multipart/form-data" method="post">
             @csrf
             <div class="mb-3">
-                <label>Nome Completo</label>
-                <input type="text" class="form-control" name="nome" required placeholder="Example da Silva">
+                <label>Nome do Pet</label>
+                <input type="text" class="form-control" name="name" required placeholder="Example da Silva">
             </div>
             <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" required placeholder="example@example.com">
+                <label for="color">Cor</label>
+                <input type="text" name="color" class="form-control" required placeholder="Branco">
             </div>
             <div class="mb-3">
-                <label>Telefone</label>
-                <input type="text" name="telefone" class="form-control" required placeholder="(99) 99999-9999">
-            </div>
-            <div class="mb-3">
-                <label for="">Cargo</label>
-                <select class="form-select" name="cargo_id" required>
-                    @foreach($cargos as $cargo)
-                    <option value="{{ $cargo->id }}">{{ $cargo->cargo }}</option>
+                <label for="">Espécie</label>
+                <select class="form-select" name="species_id" required>
+                    @foreach($species as $specie)
+                    <option value="{{ $specie->id }}">{{ $specie->name }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="mb-3">
-                <label for="">Função</label>
-                <select class="form-select" name="funcao_id" required>
-                    @foreach($funcaos as $funcao)
-                    <option value="{{ $funcao->id }}">{{ $funcao->funcao }}</option>
+                <label for="">Raça</label>
+                <select class="form-select" name="breed_id" required>
+                    @foreach($breeds as $breed)
+                    <option value="{{ $breed->id }}">{{ $breed->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="">Tutor</label>
+                <select class="form-select" name="owner_id" required>
+                    @foreach($owners as $owner)
+                    <option value="{{ $owner->id }}">{{ $owner->name }}</option>
                     @endforeach
                 </select>
             </div>

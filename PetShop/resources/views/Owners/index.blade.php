@@ -21,7 +21,7 @@
         @foreach ( $owners as $owner)
         <tr>
             <td class="align-middle">{{ $owner->id }}</td>
-            <td class="align-middle"><img src="{{  asset('storage/' .$owner->picture) }}" class="img-thumbnail" width="100" height="100"></td>
+            <td class="align-middle"><img src="{{  asset('storage/' .$owner->photo) }}" class="img-thumbnail" width="100" height="100"></td>
             <td class="align-middle">{{ $owner->name }}</td>
             <td class="align-middle">{{ $owner->email }}</td>
             <td class="align-middle">{{ $owner->phone }}</td>

@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="mb-4">
-    <h2>Lista de Funcionarios</h2>
-    <a href="{{ route('funcionarios.create') }}" class="btn btn-success">Novo Funcionario</a>
+    <h2>Lista de Pets</h2>
+    <a href="{{ route('pets.create') }}" class="btn btn-success">Novo Pet</a>
 </div>
 
 <table class="table table-responsive table-striped table-bordered mt-3">

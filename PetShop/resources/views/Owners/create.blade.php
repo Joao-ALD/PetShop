@@ -22,8 +22,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="picture" class="form-label">Foto</label>
-                <input type="file" id="picture" name="picture" class="form-control" accept="image/*">
+                <label for="photo" class="form-label">Foto</label>
+                <input type="file" id="photo" name="photo" class="form-control" accept="image/*">
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>

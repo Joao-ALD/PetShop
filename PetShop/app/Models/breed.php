@@ -7,11 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class breed extends Model
 {
-    // use HasFactory;
     protected $fillable = ['breed', 'specie_id', 'description'];
-
     public function specie()
     {
-        return $this->belongsTo(specie::class);
+        return $this->belongsTo(Specie::class);
     }
 }

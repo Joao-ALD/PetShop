@@ -25,7 +25,7 @@
                 <select class="form-select" name="specie_id" required>
                     <option value="">Selecione a espécie</option>
                     @foreach($species as $specie)
-                        <option value="{{ $specie->id }}" {{ old('specie_id', $pet->specie_id) == $specie->id ? 'selected' : '' }}>
+                        <option value="{{ $specie->id }}" {{ old('specie_id', $pet->breed->specie_id) == $specie->id ? 'selected' : '' }}>
                             {{ $specie->specie }}
                         </option>
                     @endforeach

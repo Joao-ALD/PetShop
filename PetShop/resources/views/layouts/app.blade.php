@@ -30,7 +30,7 @@
                             <li><a class="dropdown-item" href="{{ route('species.index') }}">Espécie</a></li>
                             <li><a class="dropdown-item" href="{{ route('breeds.index') }}">Raça</a></li>
                         </ul>
-                    </li>
+                    </li>0
                 </ul>
             </div>
         </div>

@@ -21,7 +21,6 @@ class PetController extends Controller
     }
     public function create()
     {
-        $pets = Pet::all();
         $breeds = Breed::all();
         $species = Specie::all();
         $owners = Owner::all();

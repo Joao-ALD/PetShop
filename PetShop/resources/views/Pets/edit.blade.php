@@ -48,7 +48,7 @@
                 <label>Tutor</label>
                 <select class="form-select" name="tutor_id" required>
                     <option value="">Selecione o tutor</option>
-                    @foreach($tutors as $tutor)
+                    @foreach($owners as $owner)
                         <option value="{{ $tutor->id }}" {{ old('tutor_id', $pet->tutor_id) == $tutor->id ? 'selected' : '' }}>
                             {{ $tutor->name }}
                         </option>

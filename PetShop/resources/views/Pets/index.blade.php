@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'PetShop - Pets')
+
 @section('content')
 <div class="mb-4">
     <h2>Lista de Pets</h2>
@@ -12,6 +14,7 @@
             <th>ID</th>
             <th>Foto</th>
             <th>Nome</th>
+            <th>Tutor</th>
             <th>Cor</th>
             <th>Espécie</th>
             <th>Raça</th>
@@ -22,12 +25,12 @@
         @foreach ( $pets as $pet)
         <tr>
             <td class="align-middle">{{ $pet->id }}</td>
-            <td class="align-middle"><img src="{{  asset('storage/' .$pet->foto) }}" class="img-thumbnail" width="100" height="100"></td>
-            <td class="align-middle">{{ $pet->nome }}</td>
-            <td class="align-middle">{{ $pet->email }}</td>
-            <td class="align-middle">{{ $pet->cor }}</td>
-            <td class="align-middle">{{ $pet->especie->especie ?? "-" }}</td>
-            <td class="align-middle">{{ $pet->raca->raca ?? "-" }}</td>
+            <td class="align-middle"><img src="{{  asset('storage/' .$pet->photo) }}" class="img-thumbnail" width="100" height="100"></td>
+            <td class="align-middle">{{ $pet->name }}</td>
+            <td class="align-middle">{{ $pet->owner->name }}</td>
+            <td class="align-middle">{{ $pet->color }}</td>
+            <td class="align-middle">{{ $pet->breed->specie->specie ?? "-" }}</td>
+            <td class="align-middle">{{ $pet->breed->breed ?? "-" }}</td>
             <td class="align-middle">
                 <div class="d-flex gap-2">
                     <a href="{{ route('pets.edit', $pet) }}" class="btn btn-warning btn-sm">Editar</a>

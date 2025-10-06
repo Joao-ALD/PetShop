@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('tltle', 'PetShop - Pets')
+
 @section('content')
 <div class="mb-4">
     <h2>Lista de Tutores</h2>

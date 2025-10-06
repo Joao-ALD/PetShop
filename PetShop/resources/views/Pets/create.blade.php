@@ -19,6 +19,7 @@
             <div class="mb-3">
                 <label for="">Espécie</label>
                 <select class="form-select" name="species_id" required>
+                <option value="">Selecione a Espécie</option>
                     @foreach($species as $specie)
                     <option value="{{ $specie->id }}">{{ $specie->specie }}</option>
                     @endforeach
@@ -27,6 +28,7 @@
             <div class="mb-3">
                 <label for="">Raça</label>
                 <select class="form-select" name="breed_id" required>
+                <option value="">Selecione a raça</option>
                     @foreach($breeds as $breed)
                     <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
                     @endforeach
@@ -35,6 +37,7 @@
             <div class="mb-3">
                 <label for="">Tutor</label>
                 <select class="form-select" name="owner_id" required>
+                <option value="">Selecione o Tutor</option>
                     @foreach($owners as $owner)
                     <option value="{{ $owner->id }}">{{ $owner->name }}</option>
                     @endforeach

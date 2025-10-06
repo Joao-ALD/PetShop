@@ -49,8 +49,8 @@
                 <select class="form-select" name="tutor_id" required>
                     <option value="">Selecione o tutor</option>
                     @foreach($owners as $owner)
-                        <option value="{{ $tutor->id }}" {{ old('tutor_id', $pet->tutor_id) == $tutor->id ? 'selected' : '' }}>
-                            {{ $tutor->name }}
+                        <option value="{{ $owner->id }}" {{ old('owner_id', $pet->owner_id) == $owner->id ? 'selected' : '' }}>
+                            {{ $owner->name }}
                         </option>
                     @endforeach
                 </select>
@@ -58,16 +58,16 @@
 
             <div class="mb-3">
                 <label class="form-label">Foto Atual</label><br>
-                @if($pet->foto)
-                    <img src="{{ asset('storage/' . $pet->foto) }}" class="img-thumbnail mb-2" width="150" alt="Foto atual do pet">
+                @if($pet->photo)
+                    <img src="{{ asset('storage/' . $pet->photo) }}" class="img-thumbnail mb-2" width="150" alt="Foto atual do pet">
                 @else
                     <p>Sem foto cadastrada.</p>
                 @endif
             </div>
 
             <div class="mb-3">
-                <label for="foto" class="form-label">Alterar foto</label>
-                <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
+                <label for="photo" class="form-label">Alterar foto</label>
+                <input type="file" id="photo" name="photo" class="form-control" accept="image/*">
             </div>
 
             <button type="submit" class="btn btn-primary">Salvar Alterações</button>
